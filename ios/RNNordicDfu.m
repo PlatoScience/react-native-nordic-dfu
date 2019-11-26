@@ -197,6 +197,9 @@ RCT_EXPORT_METHOD(startDFU:(NSString *)deviceAddress
   } else {
     CBCentralManager * centralManager = getCentralManager();
 
+    // Temporary fix for iOS 13
+    [NSThread sleepForTimeInterval: 2];
+
     if (!centralManager) {
       reject(@"nil_central_manager", @"Call to getCentralManager returned nil", nil);
     } else if (!deviceAddress) {
@@ -205,6 +208,9 @@ RCT_EXPORT_METHOD(startDFU:(NSString *)deviceAddress
       reject(@"nil_file_path", @"Attempted to start DFU with nil filePath", nil);
     } else {
       NSUUID * uuid = [[NSUUID alloc] initWithUUIDString:deviceAddress];
+
+      // Temporary fix for iOS 13
+      [NSThread sleepForTimeInterval: 2];
 
       NSArray<CBPeripheral *> * peripherals = [centralManager retrievePeripheralsWithIdentifiers:@[uuid]];
 
@@ -225,6 +231,10 @@ RCT_EXPORT_METHOD(startDFU:(NSString *)deviceAddress
         initiator.logger = self;
         initiator.delegate = self;
         initiator.progressDelegate = self;
+        initiator.alternativeAdvertisingNameEnabled = false;
+
+        // Temporary fix for iOS 13
+        [NSThread sleepForTimeInterval: 2];
 
         DFUServiceController * controller = [initiator start];
       }

@@ -7,7 +7,9 @@ For more info about the DFU process, see: [Resources](#resources)
 
 ## Installation
 
-Install and link the NPM package per usual with
+Add the following to your package.json dependencies:
+
+"react-native-nordic-dfu": "rodrigosimoesrosa/react-native-nordic-dfu"
 
 ```bash
 npm install --save react-native-nordic-dfu

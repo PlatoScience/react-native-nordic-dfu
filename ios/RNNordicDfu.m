@@ -208,11 +208,11 @@ RCT_EXPORT_METHOD(startDFU:(NSString *)deviceAddress
       reject(@"nil_file_path", @"Attempted to start DFU with nil filePath", nil);
     } else {
       NSUUID * uuid = [[NSUUID alloc] initWithUUIDString:deviceAddress];
+      
+      NSArray<CBPeripheral *> * peripherals = [centralManager retrievePeripheralsWithIdentifiers:@[uuid]];
 
       // Temporary fix for iOS 13
       [NSThread sleepForTimeInterval: 2];
-
-      NSArray<CBPeripheral *> * peripherals = [centralManager retrievePeripheralsWithIdentifiers:@[uuid]];
 
       if ([peripherals count] != 1) {
         reject(@"unable_to_find_device", @"Could not find device with deviceAddress", nil);

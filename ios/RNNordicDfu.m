@@ -209,10 +209,9 @@ RCT_EXPORT_METHOD(startDFU:(NSString *)deviceAddress
     } else {
       NSUUID * uuid = [[NSUUID alloc] initWithUUIDString:deviceAddress];
       
+      while (centralManager.state != CBManagerStatePoweredOn){}
+      
       NSArray<CBPeripheral *> * peripherals = [centralManager retrievePeripheralsWithIdentifiers:@[uuid]];
-
-      // Temporary fix for iOS 13
-      [NSThread sleepForTimeInterval: 2];
 
       if ([peripherals count] != 1) {
         reject(@"unable_to_find_device", @"Could not find device with deviceAddress", nil);
@@ -232,9 +231,6 @@ RCT_EXPORT_METHOD(startDFU:(NSString *)deviceAddress
         initiator.delegate = self;
         initiator.progressDelegate = self;
         initiator.alternativeAdvertisingNameEnabled = false;
-
-        // Temporary fix for iOS 13
-        [NSThread sleepForTimeInterval: 2];
 
         DFUServiceController * controller = [initiator start];
       }

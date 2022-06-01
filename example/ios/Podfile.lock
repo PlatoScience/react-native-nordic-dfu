@@ -6,14 +6,14 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - iOSDFULibrary (4.4.1):
+  - iOSDFULibraryPlato (4.5.2):
     - ZIPFoundation (~> 0.9.9)
   - React (0.59.4):
     - React/Core (= 0.59.4)
   - react-native-ble-manager (6.6.2):
     - React
   - react-native-nordic-dfu (3.0.0):
-    - iOSDFULibrary (~> 4.4.0)
+    - iOSDFULibraryPlato (~> 4.5.2)
     - React
     - ZIPFoundation (~> 0.9.8)
   - React/Core (0.59.4):
@@ -83,7 +83,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - boost-for-react-native
-    - iOSDFULibrary
+    - iOSDFULibraryPlato
     - ZIPFoundation
 
 EXTERNAL SOURCES:
@@ -109,7 +109,7 @@ SPEC CHECKSUMS:
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
-  iOSDFULibrary: cd43d0c1db731dbc116a67d55ea23d4c39d16c40
+  iOSDFULibraryPlato: cd43d0c1db731dbc116a67d55ea23d4c39d16c40
   React: 5cb71fb1a15b5ce04794ab49e24b48ebe4c94e65
   react-native-ble-manager: ea54402df086ead2c234e360b41606f206a2e8b8
   react-native-nordic-dfu: 13c96e0093d89d9a018ac4cffce6c964436756b1
